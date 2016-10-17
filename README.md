@@ -82,4 +82,4 @@ print np.argmax(res[0])
 
 Original models can be used for non-commercial research purposes under Creative Commons Attribution License.
 
-The Code that provided in this project is under MIT License.
+The code that provided in this project is under MIT License.
