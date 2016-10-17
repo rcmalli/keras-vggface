@@ -14,11 +14,10 @@ from keras.utils.layer_utils import convert_all_kernels_in_model
 from keras.utils.data_utils import get_file
 from keras import backend as K
 
-
-TH_WEIGHTS_PATH = 'https://github.com/rcmalli/keras-vggface/releases/download/v0.1/rcmalli_vggface_th_weights_th_ordering.h5'
-TF_WEIGHTS_PATH = 'https://github.com/rcmalli/keras-vggface/releases/download/v0.1/rcmalli_vggface_tf_weights_tf_ordering.h5'
-TH_WEIGHTS_PATH_NO_TOP = 'https://github.com/rcmalli/keras-vggface/releases/download/v0.1/rcmalli_vggface_th_weights_th_ordering_notop.h5'
-TF_WEIGHTS_PATH_NO_TOP = 'https://github.com/rcmalli/keras-vggface/releases/download/v0.1/rcmalli_vggface_tf_weights_tf_ordering_notop.h5'
+TH_WEIGHTS_PATH = 'https://github.com/rcmalli/keras-vggface/releases/download/v1.0/rcmalli_vggface_th_weights_th_ordering.h5'
+TF_WEIGHTS_PATH = 'https://github.com/rcmalli/keras-vggface/releases/download/v1.0/rcmalli_vggface_tf_weights_tf_ordering.h5'
+TH_WEIGHTS_PATH_NO_TOP = 'https://github.com/rcmalli/keras-vggface/releases/download/v1.0/rcmalli_vggface_th_weights_th_ordering_notop.h5'
+TF_WEIGHTS_PATH_NO_TOP = 'https://github.com/rcmalli/keras-vggface/releases/download/v1.0/rcmalli_vggface_tf_weights_tf_ordering_notop.h5'
 
 
 def VGGFace(include_top=True, weights='vggface',
