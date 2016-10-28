@@ -8,7 +8,7 @@ if __name__ == '__main__':
     model = VGGFace(weights=None)
     model.load_weights('../temp/weight/rcmalli_vggface_tf_weights_tf_ordering.h5')
     print 'model loaded.'
-    im = misc.imread('../image/ak2.jpg')
+    im = misc.imread('../image/ak.jpg')
     im = misc.imresize(im, (224, 224)).astype(np.float32)
     aux = copy.copy(im)
     im[:, :, 0] = aux[:, :, 2]
