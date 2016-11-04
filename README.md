@@ -16,7 +16,29 @@ Oxford VGGFace  Implementation using Keras Functional Framework 1.1
 
 ### Example Usage
 
-- Tensorflow backend with 'tf' dimension ordering
+- Finetuning 
+
+~~~python
+from keras.engine import Input, Model
+from keras.layers import Flatten, Dense
+from vggface import VGGFace
+
+#custom parameters
+nb_class = 2
+hidden_dim = 512
+
+#for theano backend image_input = Input(shape=(3,224, 224))
+image_input = Input(shape=(224, 224, 3))
+vgg_model = VGGFace(input_tensor=image_input, include_top=False)
+last_layer = vgg_model.get_layer('pool5').output
+x = Flatten(name='flatten')(last_layer)
+x = Dense(hidden_dim, activation='relu', name='fc6')(x)
+x = Dense(hidden_dim, activation='relu', name='fc7')(x)
+out = Dense(nb_class, activation='softmax', name='fc8')(x)
+custom_vgg_model = Model(image_input, out)
+~~~
+
+- Prediction: Tensorflow backend with 'tf' dimension ordering
 
 ~~~python
 from scipy import misc
@@ -42,7 +64,7 @@ print np.argmax(res[0])
 
 ~~~
 
-- Theano backend with 'th' dimension ordering
+- Prediction:  Theano backend with 'th' dimension ordering
 
 ~~~python
 from scipy import misc
