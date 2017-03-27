@@ -39,7 +39,7 @@ image_input = Input(shape=(224, 224, 3))
 # image_input = Input(shape=(3,224, 224))
 
 # Convolution Features
-vgg_model = VGGFace(include_top=False, pooling='avg') # pooling: None, avg or max
+vgg_model_conv = VGGFace(include_top=False, pooling='avg') # pooling: None, avg or max
 
 # FC7 Features
 vgg_model = VGGFace() # pooling: None, avg or max

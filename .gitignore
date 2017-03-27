@@ -1,6 +1,7 @@
 /temp
 /test
 /image
+/build
 /.idea
 *.pyc
 model/

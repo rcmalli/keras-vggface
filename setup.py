@@ -7,6 +7,7 @@ setup(name='keras_vggface',
       author='Refik Can MALLI',
       author_email = "mallir@itu.edu.tr",
       license='MIT',
-      packages=find_packages(exclude=["temp", "image", "tests"]),
+      keywords = ['keras', 'vggface'],
+      packages=find_packages(exclude=["temp", "image", "test"]),
       zip_safe=False,
       install_requires=['numpy', 'pillow', 'tensorflow', 'keras'])
