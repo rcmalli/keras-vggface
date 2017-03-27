@@ -30,16 +30,24 @@ pip install keras_vggface
 - Feature Extraction
 
 ~~~python
+from keras.engine import  Model
+from keras.layers import Input
 from keras_vggface.vggface import VGGFace
+
+image_input = Input(shape=(224, 224, 3))
+# for theano uncomment
+# image_input = Input(shape=(3,224, 224))
 
 # Convolution Features
 vgg_model = VGGFace(include_top=False, pooling='avg') # pooling: None, avg or max
 
-# FC6 Features
-vgg_model = VGGFace(include_top=False, pooling='avg') # pooling: None, avg or max
-
 # FC7 Features
-vgg_model = VGGFace(include_top=False, pooling='avg') # pooling: None, avg or max
+vgg_model = VGGFace() # pooling: None, avg or max
+out = vgg_model.get_layer('fc7').output
+vgg_model_fc7 = Model(image_input, out)
+
+# After this point you can use your models as usual for both.
+# ...
 
 ~~~
 
@@ -48,16 +56,17 @@ vgg_model = VGGFace(include_top=False, pooling='avg') # pooling: None, avg or ma
 - Finetuning 
 
 ~~~python
-from keras.engine import Input, Model
-from keras.layers import Flatten, Dense
+from keras.engine import  Model
+from keras.layers import Flatten, Dense, Input
 from keras_vggface.vggface import VGGFace
 
 #custom parameters
 nb_class = 2
 hidden_dim = 512
 
-#for theano backend image_input = Input(shape=(3,224, 224))
 image_input = Input(shape=(224, 224, 3))
+# for theano uncomment
+# image_input = Input(shape=(3,224, 224))
 vgg_model = VGGFace(input_tensor=image_input, include_top=False)
 last_layer = vgg_model.get_layer('pool5').output
 x = Flatten(name='flatten')(last_layer)
@@ -65,6 +74,9 @@ x = Dense(hidden_dim, activation='relu', name='fc6')(x)
 x = Dense(hidden_dim, activation='relu', name='fc7')(x)
 out = Dense(nb_class, activation='softmax', name='fc8')(x)
 custom_vgg_model = Model(image_input, out)
+
+# Train your model as usual.
+# ...
 ~~~
 
 - Prediction
@@ -77,6 +89,7 @@ from keras_vggface.vggface import VGGFace
 # tensorflow
 model = VGGFace()
 
+# Change the image path with yours.
 img = image.load_img('../image/ak.jpg', target_size=(224, 224))
 x = image.img_to_array(img)
 x = np.expand_dims(x, axis=0)
