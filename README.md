@@ -117,7 +117,7 @@ print('Predicted:', np.argmax(preds[0]))
 - [Related Paper](http://www.robots.ox.ac.uk/~vgg/publications/2015/Parkhi15/parkhi15.pdf)
 
 
-###Licence 
+### Licence 
 
 Original models can be used for non-commercial research purposes under Creative Commons Attribution License.
 
