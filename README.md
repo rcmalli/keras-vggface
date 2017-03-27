@@ -1,6 +1,6 @@
 # keras-vggface
 
-Oxford VGGFace  Implementation using Keras Functional Framework 1.1
+Oxford VGGFace  Implementation using Keras Functional Framework v2+
 
 - This model is converted from original caffe network. (580 MB)
 - It supports both Tensorflow and Theano backeds.
