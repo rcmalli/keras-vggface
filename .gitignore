@@ -1,0 +1,9 @@
+/temp
+/test
+/image
+/build
+/.idea
+*.pyc
+model/
+dist/
+*.egg-info
