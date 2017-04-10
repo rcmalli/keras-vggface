@@ -8,7 +8,7 @@ import warnings
 from keras.applications.imagenet_utils import _obtain_input_shape
 from keras.engine.topology import get_source_inputs
 from keras.models import Model
-from keras.layers import Flatten, Dense, Input, GlobalAveragePooling2D, GlobalMaxPooling2D
+from keras.layers import Flatten, Dense, Input, GlobalAveragePooling2D, GlobalMaxPooling2D, Activation
 from keras.layers import Convolution2D, MaxPooling2D
 from keras.utils import layer_utils
 from keras.utils.data_utils import get_file
@@ -122,9 +122,12 @@ def VGGFace(include_top=True, weights='vggface',
     if include_top:
         # Classification block
         x = Flatten(name='flatten')(x)
-        x = Dense(4096, activation='relu', name='fc6')(x)
-        x = Dense(4096, activation='relu', name='fc7')(x)
-        x = Dense(2622, activation='softmax', name='fc8')(x)
+        x = Dense(4096, name='fc6')(x)
+        x = Activation('relu', name='fc6/relu')(x)
+        x = Dense(4096, name='fc7')(x)
+        x = Activation('relu', name='fc7/relu')(x)
+        x = Dense(2622, name='fc8')(x)
+        x = Activation('relu', name='fc8/softmax')(x)
     else:
         if pooling == 'avg':
             x = GlobalAveragePooling2D()(x)
