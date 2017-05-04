@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='keras_vggface',
-      version='0.2',
+      version='0.3',
       description='VGGFace implementation with Keras framework',
       url='https://github.com/rcmalli/keras-vggface',
       author='Refik Can MALLI',
