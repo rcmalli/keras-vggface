@@ -35,7 +35,7 @@ from keras.layers import Input
 from keras_vggface.vggface import VGGFace
 
 # Convolution Features
-vgg_model_conv = VGGFace(include_top=False, pooling='avg') # pooling: None, avg or max
+vgg_model_conv = VGGFace(include_top=False, input_shape=(224, 224, 3), pooling='avg') # pooling: None, avg or max
 
 # FC7 Features
 vgg_model = VGGFace() # pooling: None, avg or max
@@ -60,7 +60,7 @@ from keras_vggface.vggface import VGGFace
 nb_class = 2
 hidden_dim = 512
 
-vgg_model = VGGFace(include_top=False)
+vgg_model = VGGFace(include_top=False, input_shape=(224, 224, 3))
 last_layer = vgg_model.get_layer('pool5').output
 x = Flatten(name='flatten')(last_layer)
 x = Dense(hidden_dim, activation='relu', name='fc6')(x)
