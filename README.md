@@ -1,4 +1,4 @@
-# keras-vggface
+# keras-vggface [![Build Status](https://travis-ci.org/rcmalli/keras-vggface.svg?branch=master)](https://travis-ci.org/rcmalli/keras-vggface)
 
 Oxford VGGFace  Implementation using Keras Functional Framework v2+
 
@@ -14,6 +14,8 @@ pip install keras_vggface
 ~~~
 
 ### News
+
+- Label names are available now (Check the prediction code).
 
 - Project is now up-to-date with the new Keras version (2.0).
 
