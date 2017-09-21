@@ -23,6 +23,7 @@ pip install keras_vggface
 
 - Keras v2.0+
 - Tensorflow 1.0+
+- Warning: Tests are failing when backend selected as Theano!.
 
 ### Example Usage
 
@@ -78,6 +79,7 @@ custom_vgg_model = Model(vgg_model.input, out)
 import numpy as np
 from keras.preprocessing import image
 from keras_vggface.vggface import VGGFace
+from keras_vggface import utils
 
 # tensorflow
 model = VGGFace()
@@ -86,18 +88,9 @@ model = VGGFace()
 img = image.load_img('../image/ak.jpg', target_size=(224, 224))
 x = image.img_to_array(img)
 x = np.expand_dims(x, axis=0)
-# TF order aka 'channel-last'
-x = x[:, :, :, ::-1]
-# TH order aka 'channel-first'
-# x = x[:, ::-1, :, :]
-# Zero-center by mean pixel
-x[:, 0, :, :] -= 93.5940
-x[:, 1, :, :] -= 104.7624
-x[:, 2, :, :] -= 129.1863
-
+x = utils.preprocess_input(x)
 preds = model.predict(x)
-print('Predicted:', np.argmax(preds[0]))
-
+print('Predicted:', utils.decode_predictions(preds))
 ~~~
 
 
