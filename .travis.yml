@@ -7,9 +7,9 @@ python:
   - "3.4"
   - "3.5"
   - "3.6"
-# command to install dependencies
+
 install: "python setup.py install"
-# command to run tests
+
 script:
   - python test.py KERAS_BACKEND=tensorflow
   - python test.py KERAS_BACKEND=theano
