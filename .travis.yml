@@ -12,4 +12,3 @@ install: "python setup.py install"
 
 script:
   - python test.py KERAS_BACKEND=tensorflow
-  - python test.py KERAS_BACKEND=theano
