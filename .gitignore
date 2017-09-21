@@ -3,6 +3,5 @@
 /build
 /.idea
 *.pyc
-model/
 dist/
 *.egg-info
