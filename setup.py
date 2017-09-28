@@ -8,6 +8,6 @@ setup(name='keras_vggface',
       author_email = "mallir@itu.edu.tr",
       license='MIT',
       keywords = ['keras', 'vggface', 'deeplearning'],
-      packages=find_packages(exclude=["temp", "image", "test"]),
+      packages=find_packages(exclude=["temp", "test"]),
       zip_safe=False,
       install_requires=['numpy', 'pillow', 'tensorflow', 'keras', 'h5py'])
