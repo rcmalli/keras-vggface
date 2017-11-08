@@ -16,4 +16,4 @@ setup(name='keras_vggface',
                         'h5py',
                         'tensorflow',
                         'six>=1.9.0',
-                        'pyyaml']
+                        'pyyaml'])
