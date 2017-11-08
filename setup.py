@@ -11,7 +11,6 @@ setup(name='keras_vggface',
       packages=find_packages(exclude=["temp", "test"]),
       zip_safe=False,
       install_requires=['numpy>=1.9.1',
-                        'pillow'
                         'scipy>=0.14',
                         'h5py',
                         'tensorflow',
