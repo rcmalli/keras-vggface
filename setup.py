@@ -10,4 +10,10 @@ setup(name='keras_vggface',
       keywords = ['keras', 'vggface', 'deeplearning'],
       packages=find_packages(exclude=["temp", "test"]),
       zip_safe=False,
-      install_requires=['numpy', 'pillow', 'tensorflow', 'keras', 'h5py'])
+      install_requires=['numpy>=1.9.1',
+                        'pillow'
+                        'scipy>=0.14',
+                        'h5py',
+                        'tensorflow',
+                        'six>=1.9.0',
+                        'pyyaml']
