@@ -30,6 +30,8 @@ def VGGFace(include_top=True, model='vgg16', weights='vggface',
             or "vggface" (pre-training on VGGFACE datasets).
         input_tensor: optional Keras tensor (i.e. output of `layers.Input()`)
             to use as image input for the model.
+        model: selects the one of the available architectures 
+            vgg16, resnet50 or senet50 default is vgg16.
         input_shape: optional shape tuple, only to be specified
             if `include_top` is False (otherwise the input shape
             has to be `(224, 224, 3)` (with `channels_last` data format)
