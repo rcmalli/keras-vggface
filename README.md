@@ -28,7 +28,7 @@ pip install keras_vggface
 
 ### Example Usage
 
-- Available Models
+#### Available Models
 
 ```python
 
@@ -46,9 +46,9 @@ vggface = VGGFace(model='senet50')
 ```
 
 
-- Feature Extraction
+#### Feature Extraction
 
-    - Convolution Features
+- Convolution Features
 
     ```python
     from keras.engine import  Model
@@ -64,8 +64,7 @@ vggface = VGGFace(model='senet50')
     ```
 
 
-    - Specific Layer Features
-
+- Specific Layer Features
 
     ```python
     from keras.engine import  Model
@@ -85,9 +84,9 @@ vggface = VGGFace(model='senet50')
 
 
 
-- Finetuning
+#### Finetuning
 
-    - VGG16
+- VGG16
 
     ```python
     from keras.engine import  Model
@@ -110,7 +109,7 @@ vggface = VGGFace(model='senet50')
     # ...
     ```
 
-    - RESNET50 or SENET50
+- RESNET50 or SENET50
 
     ```python
     from keras.engine import  Model
@@ -132,29 +131,29 @@ vggface = VGGFace(model='senet50')
 
 
 
-- Prediction
+#### Prediction
 
-    - Use `utils.preprocess_input(x, version=1)` for VGG16
-    - Use `utils.preprocess_input(x, version=2)` for RESNET50 or SENET50
+- Use `utils.preprocess_input(x, version=1)` for VGG16
+- Use `utils.preprocess_input(x, version=2)` for RESNET50 or SENET50
 
 
-```python
-import numpy as np
-from keras.preprocessing import image
-from keras_vggface.vggface import VGGFace
-from keras_vggface import utils
+    ```python
+    import numpy as np
+    from keras.preprocessing import image
+    from keras_vggface.vggface import VGGFace
+    from keras_vggface import utils
 
-# tensorflow
-model = VGGFace() # default : VGG16 , you can use model='resnet50' or 'senet50'
+    # tensorflow
+    model = VGGFace() # default : VGG16 , you can use model='resnet50' or 'senet50'
 
-# Change the image path with yours.
-img = image.load_img('../image/ajb.jpg', target_size=(224, 224))
-x = image.img_to_array(img)
-x = np.expand_dims(x, axis=0)
-x = utils.preprocess_input(x, version=1) # or version=2
-preds = model.predict(x)
-print('Predicted:', utils.decode_predictions(preds))
-```
+    # Change the image path with yours.
+    img = image.load_img('../image/ajb.jpg', target_size=(224, 224))
+    x = image.img_to_array(img)
+    x = np.expand_dims(x, axis=0)
+    x = utils.preprocess_input(x, version=1) # or version=2
+    preds = model.predict(x)
+    print('Predicted:', utils.decode_predictions(preds))
+    ```
 
 
 ### References
