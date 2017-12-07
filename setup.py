@@ -13,8 +13,15 @@ setup(name='keras_vggface',
       install_requires=['numpy>=1.9.1',
                         'scipy>=0.14',
                         'h5py',
+<<<<<<< HEAD
                         'pillow',
                         'tensorflow',
                         'keras',
                         'six>=1.9.0',
                         'pyyaml'])
+=======
+                        'tensorflow',
+                        'keras',
+                        'six>=1.9.0',
+                        'pyyaml'])
+>>>>>>> 4760af2017fdab3dbded1a39f4440c585b059f6a
