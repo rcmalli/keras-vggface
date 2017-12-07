@@ -24,7 +24,10 @@ install:
 
   - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION numpy scipy matplotlib pandas pytest h5py
   - source activate test-environment
-  - pip install git+git://github.com/Theano/Theano.git
+  - pip install theano
+
+  # set library path
+  - export LD_LIBRARY_PATH=$HOME/miniconda/envs/test-environment/lib/:$LD_LIBRARY_PATH
 
   # install PIL for preprocessing tests
   - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
@@ -34,6 +37,15 @@ install:
     fi
   - pip install tensorflow
   - pip install -e .
+
+  #install open mpi
+  - rm -rf ~/mpi
+  - mkdir ~/mpi
+  - pushd ~/mpi
+  - wget http://cntk.ai/PythonWheel/ForKeras/depends/openmpi_1.10-3.zip
+  - unzip ./openmpi_1.10-3.zip
+  - sudo dpkg -i openmpi_1.10-3.deb
+  - popd
 
 script:
   - python test.py

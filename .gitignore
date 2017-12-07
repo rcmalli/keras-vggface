@@ -1,7 +1,9 @@
 /temp
 /test
 /build
+/data
 /.idea
 *.pyc
 dist/
 *.egg-info
+/visual_network
