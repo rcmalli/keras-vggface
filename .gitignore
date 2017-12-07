@@ -6,4 +6,3 @@
 *.pyc
 dist/
 *.egg-info
-/visual_network
