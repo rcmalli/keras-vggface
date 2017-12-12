@@ -164,7 +164,7 @@ vggface = VGGFace(model='senet50')
 
 - [Related Paper 1](http://www.robots.ox.ac.uk/~vgg/publications/2015/Parkhi15/parkhi15.pdf)
 
-- [Related Paper 2](http://www.robots.ox.ac.uk/~vgg/data/vgg_face2/vggface2.pdff)
+- [Related Paper 2](http://www.robots.ox.ac.uk/~vgg/data/vgg_face2/vggface2.pdf)
 
 ### Licence 
 
