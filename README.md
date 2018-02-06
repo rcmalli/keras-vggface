@@ -97,7 +97,7 @@ vggface = VGGFace(model='senet50')
     nb_class = 2
     hidden_dim = 512
 
-    vgg_notop = VGGFace(include_top=False, input_shape=(224, 224, 3))
+    vgg_model = VGGFace(include_top=False, input_shape=(224, 224, 3))
     last_layer = vgg_model.get_layer('pool5').output
     x = Flatten(name='flatten')(last_layer)
     x = Dense(hidden_dim, activation='relu', name='fc6')(x)
@@ -119,7 +119,7 @@ vggface = VGGFace(model='senet50')
     #custom parameters
     nb_class = 2
 
-    vgg_notop = VGGFace(include_top=False, input_shape=(224, 224, 3))
+    vgg_model = VGGFace(include_top=False, input_shape=(224, 224, 3))
     last_layer = vgg_model.get_layer('avg_pool').output
     x = Flatten(name='flatten')(last_layer)
     out = Dense(nb_class, activation='softmax', name='classifier')(x)
