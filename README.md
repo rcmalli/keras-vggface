@@ -8,9 +8,10 @@ Oxford VGGFace  Implementation using Keras Functional Framework v2+
 - When you use it for the first time , weights are downloaded and stored in ~/.keras/models/vggface folder.
 
 ~~~bash
-
+# Most Recent One
+pip install git+https://github.com/rcmalli/keras-vggface.git
+# Release Version
 pip install keras_vggface
-
 ~~~
 
 ### News
