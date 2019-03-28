@@ -401,7 +401,7 @@ def senet_identity_block(input_tensor, kernel_size,
 
     se = senet_se_block(x, stage=stage, block=block, bias=True)
 
-    m = layers.add([x, se])
+    m = layers.add([se, input_tensor])
     m = Activation('relu')(m)
 
     return m
