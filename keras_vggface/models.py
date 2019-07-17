@@ -210,7 +210,7 @@ def RESNET50(include_top=True, weights='vggface',
              classes=8631):
     input_shape = _obtain_input_shape(input_shape,
                                       default_size=224,
-                                      min_size=197,
+                                      min_size=32,
                                       data_format=K.image_data_format(),
                                       require_flatten=include_top,
                                       weights=weights)
@@ -399,7 +399,7 @@ def senet_identity_block(input_tensor, kernel_size,
 
     se = senet_se_block(x, stage=stage, block=block, bias=True)
 
-    m = layers.add([x, se])
+    m = layers.add([se, input_tensor])
     m = Activation('relu')(m)
 
     return m
