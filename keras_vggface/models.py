@@ -340,6 +340,8 @@ def senet_conv_block(input_tensor, kernel_size, filters,
     else:
         bn_axis = 1
 
+    bn_eps = 0.0001
+
     conv1_reduce_name = 'conv' + str(stage) + "_" + str(block) + "_1x1_reduce"
     conv1_increase_name = 'conv' + str(stage) + "_" + str(
         block) + "_1x1_increase"
@@ -348,23 +350,23 @@ def senet_conv_block(input_tensor, kernel_size, filters,
 
     x = Conv2D(filters1, (1, 1), use_bias=bias, strides=strides,
                name=conv1_reduce_name)(input_tensor)
-    x = BatchNormalization(axis=bn_axis, name=conv1_reduce_name + "/bn")(x)
+    x = BatchNormalization(axis=bn_axis, name=conv1_reduce_name + "/bn",epsilon=bn_eps)(x)
     x = Activation('relu')(x)
 
     x = Conv2D(filters2, kernel_size, padding='same', use_bias=bias,
                name=conv3_name)(x)
-    x = BatchNormalization(axis=bn_axis, name=conv3_name + "/bn")(x)
+    x = BatchNormalization(axis=bn_axis, name=conv3_name + "/bn",epsilon=bn_eps)(x)
     x = Activation('relu')(x)
 
     x = Conv2D(filters3, (1, 1), name=conv1_increase_name, use_bias=bias)(x)
-    x = BatchNormalization(axis=bn_axis, name=conv1_increase_name + "/bn")(x)
+    x = BatchNormalization(axis=bn_axis, name=conv1_increase_name + "/bn" ,epsilon=bn_eps)(x)
 
     se = senet_se_block(x, stage=stage, block=block, bias=True)
 
     shortcut = Conv2D(filters3, (1, 1), use_bias=bias, strides=strides,
                       name=conv1_proj_name)(input_tensor)
     shortcut = BatchNormalization(axis=bn_axis,
-                                  name=conv1_proj_name + "/bn")(shortcut)
+                                  name=conv1_proj_name + "/bn",epsilon=bn_eps)(shortcut)
 
     m = layers.add([se, shortcut])
     m = Activation('relu')(m)
@@ -379,6 +381,8 @@ def senet_identity_block(input_tensor, kernel_size,
     else:
         bn_axis = 1
 
+    bn_eps = 0.0001
+
     conv1_reduce_name = 'conv' + str(stage) + "_" + str(block) + "_1x1_reduce"
     conv1_increase_name = 'conv' + str(stage) + "_" + str(
         block) + "_1x1_increase"
@@ -386,16 +390,16 @@ def senet_identity_block(input_tensor, kernel_size,
 
     x = Conv2D(filters1, (1, 1), use_bias=bias,
                name=conv1_reduce_name)(input_tensor)
-    x = BatchNormalization(axis=bn_axis, name=conv1_reduce_name + "/bn")(x)
+    x = BatchNormalization(axis=bn_axis, name=conv1_reduce_name + "/bn",epsilon=bn_eps)(x)
     x = Activation('relu')(x)
 
     x = Conv2D(filters2, kernel_size, padding='same', use_bias=bias,
                name=conv3_name)(x)
-    x = BatchNormalization(axis=bn_axis, name=conv3_name + "/bn")(x)
+    x = BatchNormalization(axis=bn_axis, name=conv3_name + "/bn",epsilon=bn_eps)(x)
     x = Activation('relu')(x)
 
     x = Conv2D(filters3, (1, 1), name=conv1_increase_name, use_bias=bias)(x)
-    x = BatchNormalization(axis=bn_axis, name=conv1_increase_name + "/bn")(x)
+    x = BatchNormalization(axis=bn_axis, name=conv1_increase_name + "/bn",epsilon=bn_eps)(x)
 
     se = senet_se_block(x, stage=stage, block=block, bias=True)
 
@@ -428,10 +432,12 @@ def SENET50(include_top=True, weights='vggface',
     else:
         bn_axis = 1
 
+    bn_eps = 0.0001
+
     x = Conv2D(
         64, (7, 7), use_bias=False, strides=(2, 2), padding='same',
         name='conv1/7x7_s2')(img_input)
-    x = BatchNormalization(axis=bn_axis, name='conv1/7x7_s2/bn')(x)
+    x = BatchNormalization(axis=bn_axis, name='conv1/7x7_s2/bn',epsilon=bn_eps)(x)
     x = Activation('relu')(x)
     x = MaxPooling2D((3, 3), strides=(2, 2))(x)
 
