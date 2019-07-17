@@ -50,7 +50,7 @@ class VGGFaceTests(unittest.TestCase):
         #print ('\n', "SENET50")
         #print('\n',preds)
         #print('\n','Predicted:', utils.decode_predictions(preds))
-        self.assertIn(utils.decode_predictions(preds)[0][0][0], 'A._J._Buckley')
+        self.assertIn('A._J._Buckley', utils.decode_predictions(preds)[0][0][0])
         self.assertAlmostEqual(utils.decode_predictions(preds)[0][0][1], 0.91819614)
 
 
