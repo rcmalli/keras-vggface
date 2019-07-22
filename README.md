@@ -17,8 +17,8 @@ pip install keras_vggface
 
 ### Library Versions
 
-- Keras v2.1.1
-- Tensorflow v1.4
+- Keras v2.2.4
+- Tensorflow v1.14.0
 - **Warning: Theano backend is not supported/tested for now.**
 
 ### Example Usage
