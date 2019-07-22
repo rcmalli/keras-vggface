@@ -1,0 +1,6 @@
+include *.py
+include *.txt
+recursive-include image *.jpg
+recursive-include tools *.py
+recursive-include visualize *.png
+recursive-include visualize *.py
