@@ -14,12 +14,6 @@ pip install git+https://github.com/rcmalli/keras-vggface.git
 pip install keras_vggface
 ~~~
 
-### News
-
-- Models that mentioned in the new paper are added. **SENET50 is not working for now.**
-
-- Label names are available now (Check the prediction code).
-
 
 ### Library Versions
 
@@ -173,9 +167,11 @@ vggface = VGGFace(model='senet50')
 
 - The code that provided in this project is under MIT License.
 
-### Projects
+### Projects / Blog Posts
 
-- If you find this project useful, please include reference link in your work.
+If you find this project useful, please include reference link in your work. You can create PR's to this document with your project/blog link.
 
-- You can create PR's to this document with your project/blog link.
+- [Live Face Identification with pre-trained VGGFace2 model](https://www.dlology.com/blog/live-face-identification-with-pre-trained-vggface2-model/)
+
+- [How to Perform Face Recognition With VGGFace2 in Keras](https://machinelearningmastery.com/how-to-perform-face-recognition-with-vggface2-convolutional-neural-network-in-keras/)
 

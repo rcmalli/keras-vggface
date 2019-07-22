@@ -3,9 +3,7 @@ dist: trusty
 language: python
 matrix:
     include:
-        - python: 2.7
-          env: KERAS_BACKEND=tensorflow
-        - python: 3.5
+        - python: 3.6
           env: KERAS_BACKEND=tensorflow
 # command to install dependencies
 install:
@@ -32,7 +30,7 @@ install:
   # install PIL for preprocessing tests
   - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
       conda install pil;
-    elif [[ "$TRAVIS_PYTHON_VERSION" == "3.5" ]]; then
+    elif [[ "$TRAVIS_PYTHON_VERSION" == "3.6" ]]; then
       conda install Pillow;
     fi
   - pip install tensorflow
