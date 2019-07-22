@@ -6,6 +6,7 @@ Oxford VGGFace  Implementation using Keras Functional Framework v2+
 - It supports only Tensorflow backend.
 - You can also load only feature extraction layers with VGGFace(include_top=False) initiation.
 - When you use it for the first time , weights are downloaded and stored in ~/.keras/models/vggface folder.
+- If you don't know where to start check the [blog posts](https://github.com/rcmalli/keras-vggface#projects--blog-posts) that are using this library.
 
 ~~~bash
 # Most Recent One (Suggested)
