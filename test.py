@@ -51,7 +51,7 @@ class VGGFaceTests(unittest.TestCase):
         #print('\n',preds)
         #print('\n','Predicted:', utils.decode_predictions(preds))
         self.assertIn('A._J._Buckley', utils.decode_predictions(preds)[0][0][0])
-        self.assertAlmostEqual(utils.decode_predictions(preds)[0][0][1], 0.9993529)
+        self.assertAlmostEqual(utils.decode_predictions(preds)[0][0][1], 0.9993529,places=3)
 
 
 if __name__ == '__main__':
