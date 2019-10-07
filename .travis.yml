@@ -49,10 +49,6 @@ install:
   - if [[ "$KERAS_BACKEND" == "cntk" ]] || [[ "$MODE" == "PEP8_DOC" ]] || [[ "$MODE" == "API" ]]; then
       ./.travis/install_cntk.sh;
     fi
-
-  # Remove the current backend from the coverage exclusion.
-  - sed -i "\/keras\/backend\/${KERAS_BACKEND}_backend.py/d" .coveragerc
-
   # install mkdocs
   - pip install mkdocs --progress-bar off
 
