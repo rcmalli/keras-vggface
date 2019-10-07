@@ -37,7 +37,7 @@ class VGGFaceTests(unittest.TestCase):
         self.assertAlmostEqual(utils.decode_predictions(preds)[0][0][1], 0.91819614, places=3)
 
     def testSENET50(self):
-        keras.backend.set_image_dim_ordering('tf')
+        keras.backend.image_data_format()
         model = VGGFace(model='senet50')
         img = image.load_img('image/ajb.jpg', target_size=(224, 224))
         x = image.img_to_array(img)
