@@ -176,3 +176,5 @@ If you find this project useful, please include reference link in your work. You
 
 - [How to Perform Face Recognition With VGGFace2 in Keras](https://machinelearningmastery.com/how-to-perform-face-recognition-with-vggface2-convolutional-neural-network-in-keras/)
 
+- [An extremely small FaceRecog project for extreme beginners, and a few thoughts on the future](https://kevincodeidea.wordpress.com/2020/01/14/an-extremely-small-facerecog-project-for-extreme-beginners-and-a-few-thoughts-on-future-part-ii-transfer-learning-and-keras/)
+
