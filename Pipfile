@@ -9,6 +9,8 @@ verify_ssl = true
 keras = "*"
 keras-applications = "*"
 tensorflow = "~=2.4.0"
+numpy = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.8"
