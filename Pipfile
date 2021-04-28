@@ -6,14 +6,9 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-h5py = "*"
-keras = "~=2.2.4"
-numpy = ">=1.9.1"
-pillow = "*"
-pyyaml = "*"
-scipy = ">=0.14"
-six = ">=1.9.0"
-tensorflow = "~=1.15.0"
+keras = "*"
+keras-applications = "*"
+tensorflow = "~=2.4.0"
 
 [requires]
-python_version = "3.6"
+python_version = "3.8"
