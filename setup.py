@@ -2,10 +2,10 @@ from setuptools import setup, find_packages
 exec(open('keras_vggface/version.py').read())
 setup(
     name='keras_vggface',
-    version=__version__,
+    version=__version__ + '_vddk-0.1',
     description='VGGFace implementation with Keras framework',
     url='https://github.com/DavidDoukhan/keras-vggface',
-    author='Refik Can MALLI',
+    author='Refik Can MALLI & David Doukhan',
     author_email="mallir@itu.edu.tr",
     license='MIT',
     keywords=['keras', 'vggface', 'deeplearning'],
