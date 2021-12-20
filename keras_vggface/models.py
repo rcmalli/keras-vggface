@@ -12,7 +12,7 @@
 from tensorflow.keras.layers import Flatten, Dense, Input, GlobalAveragePooling2D, \
     GlobalMaxPooling2D, Activation, Conv2D, MaxPooling2D, BatchNormalization, \
     AveragePooling2D, Reshape, Permute, multiply
-from tensorflow.keras_applications.imagenet_utils import _obtain_input_shape
+from keras_applications.imagenet_utils import _obtain_input_shape
 from tensorflow.keras.utils import layer_utils
 from tensorflow.keras.utils.data_utils import get_file
 from tensorflow.keras import backend as K
