@@ -1,8 +1,8 @@
 import numpy as np
 from keras_vggface import VGGFace
-from keras.preprocessing import image
+from tensoflow.keras.preprocessing import image
 from keras_vggface import utils
-import keras
+import tensorflow.keras as keras
 import unittest
 
 

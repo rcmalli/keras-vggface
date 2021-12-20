@@ -8,8 +8,8 @@
 
 
 import numpy as np
-from keras import backend as K
-from keras.utils.data_utils import get_file
+from tensorflow.keras import backend as K
+from tensorflow.keras.utils.data_utils import get_file
 
 V1_LABELS_PATH = 'https://github.com/rcmalli/keras-vggface/releases/download/v2.0/rcmalli_vggface_labels_v1.npy'
 V2_LABELS_PATH = 'https://github.com/rcmalli/keras-vggface/releases/download/v2.0/rcmalli_vggface_labels_v2.npy'
