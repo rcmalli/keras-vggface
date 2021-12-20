@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 exec(open('keras_vggface/version.py').read())
 setup(
     name='keras_vggface',
-    version=__version__ + '_vddk-0.1',
+    version=__version__,
     description='VGGFace implementation with Keras framework',
     url='https://github.com/ma7555/keras-vggface',
     author='Refik Can MALLI & ma7555',
