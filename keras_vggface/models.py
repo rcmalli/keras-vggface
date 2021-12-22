@@ -1,7 +1,7 @@
 '''VGGFace models for Keras.
 
 # Notes:
-- Resnet50 and VGG16  are modified architectures from Keras Application folder. [Keras](https://keras.io)
+- Resnet50 and VGG16  are modified architectures from tensorflow.keras Application folder. [Keras](https://keras.io)
 
 - Squeeze and excitation block is taken from  [Squeeze and Excitation Networks in
  Keras](https://github.com/titu1994/keras-squeeze-excite-network) and modified.
@@ -9,18 +9,18 @@
 '''
 
 
-from keras.layers import Flatten, Dense, Input, GlobalAveragePooling2D, \
+from tensorflow.keras.layers import Flatten, Dense, Input, GlobalAveragePooling2D, \
     GlobalMaxPooling2D, Activation, Conv2D, MaxPooling2D, BatchNormalization, \
-    AveragePooling2D, Reshape, Permute, multiply
+    AveragePooling2D, Reshape, multiply
 from keras_applications.imagenet_utils import _obtain_input_shape
-from keras.utils import layer_utils
-from keras.utils.data_utils import get_file
-from keras import backend as K
+from tensorflow.python.keras.utils import layer_utils
+from tensorflow.keras.utils import get_file
+from tensorflow.keras import backend as K
 from keras_vggface import utils
-from keras.engine.topology import get_source_inputs
+from tensorflow.keras.utils import get_source_inputs
 import warnings
-from keras.models import Model
-from keras import layers
+from tensorflow.keras.models import Model
+from tensorflow.keras import layers
 
 
 def VGG16(include_top=True, weights='vggface',
