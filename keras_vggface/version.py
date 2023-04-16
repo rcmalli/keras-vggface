@@ -1,4 +1,4 @@
-__version__ = '0.6'
+__version__ = '1.0'
 
 def pretty_versions():
     import keras

@@ -1,6 +1,6 @@
-# keras-vggface [![Build Status](https://travis-ci.org/rcmalli/keras-vggface.svg?branch=master)](https://travis-ci.org/rcmalli/keras-vggface) [![PyPI Status](https://badge.fury.io/py/keras-vggface.svg)](https://badge.fury.io/py/keras-vggface) [![PyPI Status](https://pepy.tech/badge/keras-vggface)](https://pepy.tech/project/keras-vggface)
+# keras-vggface [![PyPI Status](https://badge.fury.io/py/keras-vggface.svg)](https://badge.fury.io/py/keras-vggface) [![PyPI Status](https://pepy.tech/badge/keras-vggface)](https://pepy.tech/project/keras-vggface)
 
-Oxford VGGFace  Implementation using Keras Functional Framework v2+
+Oxford VGGFace Implementation using Keras Functional Framework v2+
 
 - Models are converted from original caffe networks.
 - It supports only Tensorflow backend.
@@ -16,11 +16,12 @@ pip install keras_vggface
 ~~~
 
 
-### Library Versions
+### TensorFlow compatibility
 
-- Keras v2.2.4
-- Tensorflow v1.14.0
-- **Warning: Theano backend is not supported/tested for now.**
+Version 1.0+ supports TensorFlow 2+ (see `Pipfile.lock`). For TensorFlow 1
+support, use version 0.6.
+
+**Warning: Theano backend is not supported/tested for now.**
 
 ### Example Usage
 
@@ -43,7 +44,7 @@ vggface = VGGFace(model='senet50')
 
 
 #### Feature Extraction
- 
+
 - Convolution Features
 
     ```python
@@ -115,7 +116,8 @@ vggface = VGGFace(model='senet50')
     #custom parameters
     nb_class = 2
 
-    vgg_model = VGGFace(include_top=False, input_shape=(224, 224, 3))
+    # Set model to `resnet50` or `senet50`
+    vgg_model = VGGFace(include_top=False, model='resnet50', input_shape=(224, 224, 3))
     last_layer = vgg_model.get_layer('avg_pool').output
     x = Flatten(name='flatten')(last_layer)
     out = Dense(nb_class, activation='softmax', name='classifier')(x)
@@ -162,7 +164,7 @@ vggface = VGGFace(model='senet50')
 
 - [Related Paper 2](http://www.robots.ox.ac.uk/~vgg/publications/2018/Cao18/cao18.pdf)
 
-### Licence 
+### Licence
 
 - Check Oxford Webpage for the license of the original models.
 
@@ -177,4 +179,3 @@ If you find this project useful, please include reference link in your work. You
 - [How to Perform Face Recognition With VGGFace2 in Keras](https://machinelearningmastery.com/how-to-perform-face-recognition-with-vggface2-convolutional-neural-network-in-keras/)
 
 - [An extremely small FaceRecog project for extreme beginners, and a few thoughts on the future](https://kevincodeidea.wordpress.com/2020/01/14/an-extremely-small-facerecog-project-for-extreme-beginners-and-a-few-thoughts-on-future-part-ii-transfer-learning-and-keras/)
-
