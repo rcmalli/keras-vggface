@@ -23,10 +23,21 @@ from keras.models import Model
 from keras import layers
 
 
+def get_name_formatted(name, prefix):
+    return [name if prefix == '' else '{}_{}'.format(name, prefix)][0]
+
+
+def apply_name_formatting(model, prefix):
+    for each_layer in model.layers:
+        each_layer.name = get_name_formatted(each_layer.name, prefix)
+
+    return model
+
+
 def VGG16(include_top=True, weights='vggface',
           input_tensor=None, input_shape=None,
           pooling=None,
-          classes=2622):
+          classes=2622, prefix=''):
     input_shape = _obtain_input_shape(input_shape,
                                       default_size=224,
                                       min_size=48,
@@ -48,15 +59,12 @@ def VGG16(include_top=True, weights='vggface',
     x = MaxPooling2D((2, 2), strides=(2, 2), name='pool1')(x)
 
     # Block 2
-    x = Conv2D(128, (3, 3), activation='relu', padding='same', name='conv2_1')(
-        x)
-    x = Conv2D(128, (3, 3), activation='relu', padding='same', name='conv2_2')(
-        x)
+    x = Conv2D(128, (3, 3), activation='relu', padding='same', name='conv2_1')(x)
+    x = Conv2D(128, (3, 3), activation='relu', padding='same', name='conv2_2')(x)
     x = MaxPooling2D((2, 2), strides=(2, 2), name='pool2')(x)
 
     # Block 3
-    x = Conv2D(256, (3, 3), activation='relu', padding='same', name='conv3_1')(
-        x)
+    x = Conv2D(256, (3, 3), activation='relu', padding='same', name='conv3_1')(x)
     x = Conv2D(256, (3, 3), activation='relu', padding='same', name='conv3_2')(
         x)
     x = Conv2D(256, (3, 3), activation='relu', padding='same', name='conv3_3')(
@@ -135,6 +143,9 @@ def VGG16(include_top=True, weights='vggface',
                               '`image_data_format="channels_last"` in '
                               'your Keras config '
                               'at ~/.keras/keras.json.')
+
+    model = apply_name_formatting(model, prefix)
+    
     return model
 
 
@@ -207,7 +218,7 @@ def resnet_conv_block(input_tensor, kernel_size, filters, stage, block,
 def RESNET50(include_top=True, weights='vggface',
              input_tensor=None, input_shape=None,
              pooling=None,
-             classes=8631):
+             classes=8631, prefix=''):
     input_shape = _obtain_input_shape(input_shape,
                                       default_size=224,
                                       min_size=32,
@@ -305,6 +316,8 @@ def RESNET50(include_top=True, weights='vggface',
                           'at ~/.keras/keras.json.')
     elif weights is not None:
         model.load_weights(weights)
+
+    model = apply_name_formatting(model, prefix)
 
     return model
 
@@ -412,7 +425,7 @@ def senet_identity_block(input_tensor, kernel_size,
 def SENET50(include_top=True, weights='vggface',
             input_tensor=None, input_shape=None,
             pooling=None,
-            classes=8631):
+            classes=8631, prefix=''):
     input_shape = _obtain_input_shape(input_shape,
                                       default_size=224,
                                       min_size=197,
@@ -512,5 +525,7 @@ def SENET50(include_top=True, weights='vggface',
                           'at ~/.keras/keras.json.')
     elif weights is not None:
         model.load_weights(weights)
+
+    model = apply_name_formatting(model, prefix)
 
     return model

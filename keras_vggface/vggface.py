@@ -12,7 +12,7 @@ from keras_vggface.models import RESNET50, VGG16, SENET50
 def VGGFace(include_top=True, model='vgg16', weights='vggface',
             input_tensor=None, input_shape=None,
             pooling=None,
-            classes=None):
+            classes=None, prefix=''):
     """Instantiates the VGGFace architectures.
     Optionally loads weights pre-trained
     on VGGFace datasets. Note that when using TensorFlow,
@@ -78,7 +78,7 @@ def VGGFace(include_top=True, model='vgg16', weights='vggface',
         return VGG16(include_top=include_top, input_tensor=input_tensor,
                      input_shape=input_shape, pooling=pooling,
                      weights=weights,
-                     classes=classes)
+                     classes=classes, prefix=prefix)
 
 
     if model == 'resnet50':
@@ -94,7 +94,7 @@ def VGGFace(include_top=True, model='vgg16', weights='vggface',
         return RESNET50(include_top=include_top, input_tensor=input_tensor,
                         input_shape=input_shape, pooling=pooling,
                         weights=weights,
-                        classes=classes)
+                        classes=classes, prefix=prefix)
 
     if model == 'senet50':
 
@@ -109,4 +109,4 @@ def VGGFace(include_top=True, model='vgg16', weights='vggface',
         return SENET50(include_top=include_top, input_tensor=input_tensor,
                         input_shape=input_shape, pooling=pooling,
                         weights=weights,
-                        classes=classes)
+                        classes=classes, prefix=prefix)
