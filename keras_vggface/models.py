@@ -8,9 +8,9 @@
 
 '''
 
-
+from keras.layers import BatchNormalization
 from tensorflow.python.keras.layers import Flatten, Dense, Input, GlobalAveragePooling2D, \
-    GlobalMaxPooling2D, Activation, Conv2D, MaxPooling2D, BatchNormalization, \
+    GlobalMaxPooling2D, Activation, Conv2D, MaxPooling2D, \
     AveragePooling2D, Reshape, Permute, multiply
 from keras_applications.imagenet_utils import _obtain_input_shape
 from tensorflow.python.keras.utils.data_utils import get_file
